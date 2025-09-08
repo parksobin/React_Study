@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <span>Total clicks : 0</span>
+        <button id="btn">ClickMe</button>
+    </body>
+    <script>
+        // const button = document.querySelector("button")
+        let counter =0;
+        const button = document.getElementById("btn");
+        const span =document.querySelector("span");
+        function handleClick()
+        {
+            counter ++;
+            span.innerText =`Total clicks : ${counter}`;
+            // js에서 문자열에 변수를 같이 넣어 사용하려면 백틱(`)사용
+            //console.log("i have been clicked");
+        }
+        button.addEventListener("click",handleClick);
+    </script>
+</html>
