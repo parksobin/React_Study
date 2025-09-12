@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    const root = document.getElementById("root");
+
+    function App() {
+            const [counter, setCounter] = React.useState(0);
+            const onClick = () => {
+                //setCounter((prev) => prev + 1);
+                setCounter(counter+1);
+                // modifier(46484848);
+                // counter = 46484848;
+                // ReactDOM.render(<App/>,root);
+
+                // [데이터, 함수] -> 데이터로 건내고 함수로 적용하는 방식 사용
+                // counter ++;
+                // console.log(counter);
+      };
+
+      return (
+        <div>
+          <h3>Total clicks: {counter}</h3>
+          <button onClick={onClick}>Click me</button>
+        </div>
+      );
+    }
+
+    ReactDOM.render(<App />, root);
+  </script>
+</html>
