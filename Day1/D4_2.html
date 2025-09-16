@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    function App() {
+        const [minutes,setMinutes] = React.useState();
+        //useState는 배열 이용, 첫번째의 Element가 현재값됨
+        // 두번째 Element는 minutes를 수정하는 modifier 함수
+        // 이렇게 하면 input에 값을 줄 수 있음
+        const onChange =(events) =>{
+            //console.log(event.target.value);
+            setMinutes(event.target.value);
+        }
+        // input 에 변화가 생길 때마다 리스닝하고 있는 상태
+        return (
+                <div>
+                    <h1> Super Converter </h1>
+                    <label htmlFor="minutes">Minutes</label>
+                    <input
+                     value={minutes}
+                     id="minutes" 
+                     placeholder="Minutes" 
+                     type="number"
+                     onChange ={onChange}/>
+                    <h4>You want to convert {minutes}</h4>
+                    <label htmlFor="hours">Hours</label>
+                    <input id="hours" placeholder="Hours" type="number"/>
+                </div>
+
+                //class 와 for은 js 정의어기 때문에 html에 있는 걸
+                //사용하려면 앞에 html을 붙여서 사용해야 함
+                // input -> uncontrolled
+            )
+            };
+    const root = document.getElementById("root");
+    ReactDOM.render(<App />, root);
+  </script>
+</html>
